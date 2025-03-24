@@ -5,20 +5,46 @@ app.use(express.json());
 
 const PORT = 6080;
 
+// Структура объекта Contact
+class Contact {
+    constructor() {
+        this.ID = 0;
+        this.Username = '';
+        this.GivenName = '';
+        this.FamilyName = '';
+        this.Phone = [];
+        this.Email = [];
+        this.Birthdate = null;
+    }
+}
+
+// Структура объекта Group
+class Group {
+    constructor() {
+        this.ID = 0;
+        this.Title = '';
+        this.Description = '';
+        this.Contacts = [];
+    }
+}
+
 // Заглушки для Contact
 app.post('/api/v1/contact', (req, res) => {
     console.log('Create Contact:', req.body);
-    res.status(201).json({});
+    const response = new Contact(); // возвращаем пустую структуру Contact
+    res.status(201).json(response);
 });
 
 app.get('/api/v1/contact', (req, res) => {
     console.log('Get Contact');
-    res.status(200).json({});
+    const response = new Contact(); // возвращаем пустую структуру Contact
+    res.status(200).json(response);
 });
 
 app.put('/api/v1/contact', (req, res) => {
     console.log('Update Contact:', req.body);
-    res.status(200).json({});
+    const response = new Contact(); // возвращаем пустую структуру Contact
+    res.status(200).json(response);
 });
 
 app.delete('/api/v1/contact', (req, res) => {
@@ -29,17 +55,20 @@ app.delete('/api/v1/contact', (req, res) => {
 // Заглушки для Group
 app.post('/api/v1/group', (req, res) => {
     console.log('Create Group:', req.body);
-    res.status(201).json({});
+    const response = new Group(); // возвращаем пустую структуру Group
+    res.status(201).json(response);
 });
 
 app.get('/api/v1/group', (req, res) => {
     console.log('Get Group');
-    res.status(200).json({});
+    const response = new Group(); // возвращаем пустую структуру Group
+    res.status(200).json(response);
 });
 
 app.put('/api/v1/group', (req, res) => {
     console.log('Update Group:', req.body);
-    res.status(200).json({});
+    const response = new Group(); // возвращаем пустую структуру Group
+    res.status(200).json(response);
 });
 
 app.delete('/api/v1/group', (req, res) => {
