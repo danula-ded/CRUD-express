@@ -5,6 +5,16 @@ app.use(express.json());
 
 const PORT = 6080;
 
+// Структура объекта Phone
+class Phone {
+    constructor() {
+        this.TypeID = 0;
+        this.CountryCode = 0;
+        this.Operator = 0;
+        this.Number = 0;
+    }
+}
+
 // Структура объекта Contact
 class Contact {
     constructor() {
@@ -12,7 +22,7 @@ class Contact {
         this.Username = '';
         this.GivenName = '';
         this.FamilyName = '';
-        this.Phone = [];
+        this.Phone = [new Phone()]; // массив объектов Phone
         this.Email = [];
         this.Birthdate = null;
     }
@@ -24,26 +34,26 @@ class Group {
         this.ID = 0;
         this.Title = '';
         this.Description = '';
-        this.Contacts = [];
+        this.Contacts = []; // массив ID контактов
     }
 }
 
 // Заглушки для Contact
 app.post('/api/v1/contact', (req, res) => {
     console.log('Create Contact:', req.body);
-    const response = new Contact(); // возвращаем пустую структуру Contact
+    const response = new Contact();
     res.status(201).json(response);
 });
 
 app.get('/api/v1/contact', (req, res) => {
     console.log('Get Contact');
-    const response = new Contact(); // возвращаем пустую структуру Contact
+    const response = new Contact();
     res.status(200).json(response);
 });
 
 app.put('/api/v1/contact', (req, res) => {
     console.log('Update Contact:', req.body);
-    const response = new Contact(); // возвращаем пустую структуру Contact
+    const response = new Contact();
     res.status(200).json(response);
 });
 
@@ -55,19 +65,19 @@ app.delete('/api/v1/contact', (req, res) => {
 // Заглушки для Group
 app.post('/api/v1/group', (req, res) => {
     console.log('Create Group:', req.body);
-    const response = new Group(); // возвращаем пустую структуру Group
+    const response = new Group();
     res.status(201).json(response);
 });
 
 app.get('/api/v1/group', (req, res) => {
     console.log('Get Group');
-    const response = new Group(); // возвращаем пустую структуру Group
+    const response = new Group();
     res.status(200).json(response);
 });
 
 app.put('/api/v1/group', (req, res) => {
     console.log('Update Group:', req.body);
-    const response = new Group(); // возвращаем пустую структуру Group
+    const response = new Group();
     res.status(200).json(response);
 });
 
